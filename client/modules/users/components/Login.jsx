@@ -1,10 +1,13 @@
 import React from 'react';
+import Helmet from 'react-helmet';
+
 
 class Login extends React.Component {
 	render() {
 		const {error} = this.props;
 		return (
-			<div>
+			<div className="login">
+				<Helmet title="Login" />
 				<h1>Login</h1>
 				{error ? <p style={{color: 'red'}}>{error}</p> : null}
 				<form>
