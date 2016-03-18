@@ -1,11 +1,13 @@
-#Mantraplate
+#Pomodoro Timer
 
-Mantraplate is a simple boilerplate project for quickly creating Meteor apps that follow the Mantra spec.
+A simple pomodoro timer made with [mantra spec](https://kadirahq.github.io/mantra/)
 
-For more info on Mantra, read the [specs](https://kadirahq.github.io/mantra/) and check out the [sample app](https://github.com/mantrajs/mantra-sample-blog-app).
+For more info on Mantra, read the [specs](https://kadirahq.github.io/mantra/).
 
 To get this set up clone the repo with:
 
-`git clone git@github.com:kenrogers/mantraplate.git`
+`git clone git@github.com:lsgoulart/pomodoro_mantra.git`
 
-And then run `npm install`
+Run `npm install`
+
+and then run `meteor`
