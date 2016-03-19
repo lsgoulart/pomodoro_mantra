@@ -27,7 +27,6 @@ class Timer extends Component {
 
     renderSound() {
         const {ended} = this.props.timer
-        console.log(ended);
         return(
             <Sound
                 url="/assets/alarm.mp3"

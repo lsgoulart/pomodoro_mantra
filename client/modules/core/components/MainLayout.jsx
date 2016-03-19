@@ -14,7 +14,6 @@ const Layout = ({content = () => null }) => (
                 {"property": "og:type", "content": "article"}
             ]}
         />
-        <h1>Pomodoro Timer</h1>
         {content()}
     </div>
 );

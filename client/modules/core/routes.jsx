@@ -7,6 +7,8 @@ import Login from '../users/containers/Login.js';
 import Home from '../timer/containers/Home.js';
 import Timer from '../timer/containers/Timer.js';
 
+import TimerTemplate from './components/TimerTemplate.jsx';
+
 export default function (injectDeps, {FlowRouter}) {
     const MainLayoutCtx = injectDeps(Layout);
 
@@ -28,6 +30,17 @@ export default function (injectDeps, {FlowRouter}) {
 
             mount(MainLayoutCtx, {
                 content: () => (<Timer timerId={timerId} />)
+            });
+        }
+    });
+
+    FlowRouter.route('/timert/:timerId', {
+        name: 'timert.id',
+        action(timerId) {
+            if(!Meteor.user()) return FlowRouter.go('/login');
+
+            mount(MainLayoutCtx, {
+                content: () => (<TimerTemplate timerId={timerId} />)
             });
         }
     });
