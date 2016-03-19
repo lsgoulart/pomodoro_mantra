@@ -8,8 +8,9 @@ class Home extends Component {
         return(
             <div className="timer-app">
                 <Helmet title="Timer" />
-                <button onClick={this.newTimer.bind(this, 'pomodoro')}>5:00</button>
-                <button onClick={this.newTimer.bind(this, 'break')}>25:00</button>
+                <button onClick={this.newTimer.bind(this, 'pomodoro')}>pomodoro</button>
+                <button onClick={this.newTimer.bind(this, 'shortbreak')}>short break</button>
+                <button onClick={this.newTimer.bind(this, 'longbreak')}>long break</button>
             </div>
         );
     }

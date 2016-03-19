@@ -8,9 +8,21 @@ export default function({Collections, Meteor, LocalState}) {
     Meteor.methods({
         'home.create.timer'(type) {
             check(type, String);
+            let time = 0;
 
             const createdAt = new Date();
-            const time = (type === 'break') ? (60*25)*1000 : (60*5)*1000;
+            switch (type) {
+                case 'shortbreak':
+                    time = (60*5)*1000;
+                    break;
+                case 'longbreak':
+                    time = (60*10)*1000;
+                    break;
+                default:
+                    time = (60*25)*1000;
+                    break;
+            }
+
             const counting = false;
             const timer = {type, time, counting, createdAt};
             const id = Timer.insert(timer);
