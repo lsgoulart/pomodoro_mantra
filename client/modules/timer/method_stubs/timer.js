@@ -28,4 +28,15 @@ export default function({Collections, Meteor, LocalState}) {
             Timer.update({_id: timerId}, timer);
         }
     });
+
+    Meteor.methods({
+        'timer.end'(timerId) {
+            check(timerId, String);
+            const timer = Timer.findOne(timerId);
+            timer.counting = false;
+            timer.ended = true;
+
+            Timer.update({_id: timerId}, timer);
+        }
+    });
 }

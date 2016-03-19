@@ -16,6 +16,12 @@ export default {
         Meteor.call('timer.counting', timerId, counting, (err, result) => {});
     },
 
+    end_timer({Meteor, LocalState, FlowRouter}, timerId) {
+        if(!timerId) return LocalState.set('ERROR_END_TIMER', 'Timer ID is required');
+        LocalState.set('ERROR_SET_COUNTING', null);
+        Meteor.call('timer.end', timerId, (err, result) => {});
+    },
+
     clearErrors({LocalState}) {
         return LocalState.set('SAVING_ERROR', null);
     }

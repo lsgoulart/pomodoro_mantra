@@ -19,6 +19,7 @@ export const composer = ({context, timerId}, onData) => {
 export const depsMapper = (context, actions) => ({
     set: actions.timer.set,
     set_counting: actions.timer.set_counting,
+    end_timer: actions.timer.end_timer,
     clearErrors: actions.timer.clearErrors,
     context: () => context
 });

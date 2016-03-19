@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Moment from 'moment';
 import Helmet from 'react-helmet';
+import Sound from 'react-sound';
 
 
 class Timer extends Component {
@@ -11,20 +12,36 @@ class Timer extends Component {
 
     componentDidMount() {
         const {set} = this.props;
+        const {end_timer} = this.props;
         const timer = setInterval(() => {
             const { _id, time, counting } = this.props.timer;
-            console.log(time);
             if(time > 0){
                  if(counting) set(_id, time);
              }else {
+                 const { _id, time, counting } = this.props.timer;
                  clearInterval(timer);
+                 end_timer(_id);
              }
         }, 1000);
     }
 
+    renderSound() {
+        const {ended} = this.props.timer
+        console.log(ended);
+        return(
+            <Sound
+                url="/assets/alarm.mp3"
+                playStatus={ Sound.status.PLAYING }
+                playFromPosition={0}
+                onLoading={this.handleSongLoading}
+                onPlaying={this.handleSongPlaying}
+                onFinishedPlaying={this.handleSongFinishedPlaying} />
+        )
+    }
+
     render() {
         const {error} = this.props;
-        const {counting} = this.props.timer;
+        const {ended, counting} = this.props.timer;
 
         return(
             <div className="timer">
@@ -32,6 +49,7 @@ class Timer extends Component {
                 <Helmet title={Moment.utc(this.props.timer.time).format('mm:ss')} />
                 <h3>{ Moment.utc(this.props.timer.time).format('mm:ss') }</h3>
                 <button onClick={this.startTimer.bind(this)}>{ (counting) ? 'Pause' : 'Start' }</button>
+                {(ended) ? this.renderSound() : null }
             </div>
         );
     }
