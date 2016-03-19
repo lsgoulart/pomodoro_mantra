@@ -47,7 +47,7 @@ class Timer extends Component {
             <div className="timer">
                 {error ? <p style={{color: 'red'}}>{error}</p> : null}
                 <Helmet title={Moment.utc(this.props.timer.time).format('mm:ss')} />
-                <h3>{ Moment.utc(this.props.timer.time).format('mm:ss') }</h3>
+                <h3 className="timer-component">{ Moment.utc(this.props.timer.time).format('mm:ss') }</h3>
                 <button onClick={this.startTimer.bind(this)}>{ (counting) ? 'Pause' : 'Start' }</button>
                 {(ended) ? this.renderSound() : null }
             </div>

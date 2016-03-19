@@ -31,6 +31,7 @@ ejson@1.0.8-modules.6
 email@1.0.9-modules.6
 es5-shim@4.3.2-modules.6
 fastclick@1.0.8-modules.6
+fourseven:scss@3.4.1
 geojson-utils@1.0.5-modules.6
 hot-code-push@1.0.1-modules.6
 html-tools@1.0.6-modules.6

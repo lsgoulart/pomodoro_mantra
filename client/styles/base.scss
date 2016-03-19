@@ -1,0 +1,42 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700|Lato:400,100,100italic,300,900);
+body {
+    background: #FF5A4C;
+    font-family: 'Lato';
+    color: #fff;
+    font-weight: 100;
+    text-align: center;
+}
+
+*:after, *:before, * {
+    box-sizing: border-box;
+    font-weight: 100;
+}
+
+.timer-component {
+    font-size: 80px;
+    margin: 0;
+}
+
+button {
+    border: 1px solid #fff;
+    letter-spacing: 2px;
+    color: #fff;
+    padding: 10px;
+    text-transform: uppercase;
+    background: none;
+    border-radius: 3px;
+    font-weight: 400;
+    margin: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 200ms ease;
+
+    &:focus, &:active {
+        outline: none;
+    }
+
+    &:hover {
+        background: #fff;
+        color: #FF5A4C;
+    }
+}
