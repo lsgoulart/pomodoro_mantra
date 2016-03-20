@@ -1,0 +1,26 @@
+
+.timer {
+    width: 100%;
+    display: block;
+    background: #f6f5f6;
+    padding: 50px 0;
+
+    .timer-component {
+        font-size: 50px;
+        display: block;
+        width: 100%;
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        line-height: 200px;
+    }
+
+    .timer-holder {
+        width: 200px;
+        display: block;
+        margin: auto;
+        position: relative;
+        margin: auto;
+    }
+}

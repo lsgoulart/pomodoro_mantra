@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Moment from 'moment';
 import Helmet from 'react-helmet';
 import Sound from 'react-sound';
+import {Circle} from 'rc-progress';
 
 
 class Timer extends Component {
@@ -38,19 +39,17 @@ class Timer extends Component {
         )
     }
 
-    render() {
-        const {error} = this.props;
-        const {ended, counting} = this.props.timer;
+    getPercent() {
+        const {type, time} = this.props.timer;
+        let mins = 0;
 
-        return(
-            <div className="timer">
-                {error ? <p style={{color: 'red'}}>{error}</p> : null}
-                <Helmet title={Moment.utc(this.props.timer.time).format('mm:ss')} />
-                <h3 className="timer-component">{ Moment.utc(this.props.timer.time).format('mm:ss') }</h3>
-                <button onClick={this.startTimer.bind(this)}>{ (counting) ? 'Pause' : 'Start' }</button>
-                {(ended) ? this.renderSound() : null }
-            </div>
-        );
+        if(type == 'pomodoro') mins = 25;
+        else if(type == 'shortbreak') mins = 5;
+        else mins = 15;
+
+        let total = (60*mins)*1000;
+        let perc = (time/total)*100;
+        return perc;
     }
 
     startTimer() {
@@ -59,6 +58,28 @@ class Timer extends Component {
         let isCounting = !counting;
         set_counting(_id, isCounting);
     }
+
+    render() {
+        const {error} = this.props;
+        const {ended, counting, time} = this.props.timer;
+
+        return(
+            <div className="timer">
+                {error ? <p style={{color: 'red'}}>{error}</p> : null}
+                <Helmet title={Moment.utc(time).format('mm:ss')} />
+
+                <div className="timer-holder">
+                    <h3 className="timer-component">{ Moment.utc(this.props.timer.time).format('mm:ss') }</h3>
+                    <Circle percent={ this.getPercent() } strokeWidth="4" strokeColor="#ff5a4c" />
+                </div>
+
+                <button onClick={this.startTimer.bind(this)}>{ (counting) ? 'Pause' : 'Start' }</button>
+                {(ended) ? this.renderSound() : null }
+            </div>
+        );
+    }
+
+
 }
 
 export default Timer;

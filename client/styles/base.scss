@@ -1,10 +1,15 @@
 @import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700|Lato:400,100,100italic,300,900);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Roboto:400,100,300,700,500,900|Lato:400,100,300,700,900);
 body {
-    background: #FF5A4C;
-    font-family: 'Lato';
-    color: #fff;
+    background: #fff;
+    color: #7f818b;
     font-weight: 100;
     text-align: center;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Open Sans', sans-serif; */
+    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Lato', sans-serif;
 }
 
 *:after, *:before, * {
@@ -12,19 +17,18 @@ body {
     font-weight: 100;
 }
 
-.timer-component {
-    font-size: 80px;
-    margin: 0;
-}
+
 
 button {
-    border: 1px solid #fff;
+    border: 1px solid #ff5a4c;
     letter-spacing: 2px;
     color: #fff;
+    background: #ff5a4c;
     padding: 10px;
     text-transform: uppercase;
-    background: none;
     border-radius: 3px;
+    font-size: 11px;
+    width: 200px;
     font-weight: 400;
     margin: 5px;
     margin-top: 20px;
@@ -36,7 +40,7 @@ button {
     }
 
     &:hover {
-        background: #fff;
+        background: transparent;
         color: #FF5A4C;
     }
 }
