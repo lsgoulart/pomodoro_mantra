@@ -1,0 +1,28 @@
+.user-form {
+    width: 80%;
+    max-width: 300px;
+    margin: auto;
+
+    input{
+        width: 100%;
+        display: block;
+        font-size: 13px;
+        letter-spacing: 2px;
+        font-family: 'Lato', sans-serif;
+        border: 1px solid #ccc;
+        background: none;
+        padding: 10px;
+        border-radius: 3px;
+        margin: 5px 0;
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    button {
+        width: 100%;
+        max-width: 300px;
+        margin: 0;
+    }
+}

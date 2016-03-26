@@ -22,9 +22,8 @@ export default function() {
             }
 
             const counting = false;
-            const timer = {type, time, counting, createdAt};
-            const id = Timer.insert(timer);
-            return id;
+            const newTimer = { type, time, counting, createdAt };
+            return Timer.insert(newTimer);
         }
     });
 }

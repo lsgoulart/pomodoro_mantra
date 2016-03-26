@@ -6,7 +6,7 @@ class NewUser extends React.Component {
 	render() {
 		const {error} = this.props;
 		return (
-			<div className="register">
+			<div className="register user-form">
 				<Helmet title="Register" />
 				<h1>Register</h1>
 				{error ? <p style={{color: 'red'}}>{error}</p> : null}

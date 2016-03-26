@@ -6,7 +6,7 @@ class Login extends React.Component {
 	render() {
 		const {error} = this.props;
 		return (
-			<div className="login">
+			<div className="login user-form">
 				<Helmet title="Login" />
 				<h1>Login</h1>
 				{error ? <p style={{color: 'red'}}>{error}</p> : null}

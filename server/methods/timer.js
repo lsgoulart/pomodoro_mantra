@@ -11,7 +11,7 @@ export default function() {
             const timer = Timer.findOne(timerId);
             timer.time = time;
 
-            Timer.update({_id: timerId}, timer);
+            return Timer.update({_id: timerId}, timer);
         }
     });
 
@@ -23,7 +23,7 @@ export default function() {
             const timer = Timer.findOne(timerId);
             timer.counting = counting;
 
-            Timer.update({_id: timerId}, timer);
+            return Timer.update({_id: timerId}, timer);
         }
     });
 
@@ -34,7 +34,7 @@ export default function() {
             timer.counting = false;
             timer.ended = true;
 
-            Timer.update({_id: timerId}, timer);
+            return Timer.update({_id: timerId}, timer);
         }
     });
 }
