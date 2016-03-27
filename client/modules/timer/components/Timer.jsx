@@ -15,7 +15,7 @@ class Timer extends Component {
 
                 <Counter _id={_id} counting={counting} time={time} type={type} ended={ended}/>
 
-                <TaskList timerId={_id} />
+                {(type == 'pomodoro') ? <TaskList timerId={_id} /> : <h1>Enjoy your free time!</h1>}
             </div>
         );
     }

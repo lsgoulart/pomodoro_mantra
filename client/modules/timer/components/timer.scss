@@ -30,12 +30,20 @@
     }
 }
 
-.task-list {
+.container {
     width: 80%;
     max-width: 600px;
     margin: auto;
+}
+
+.task-list {
+    width: 100%;
     text-align: left;
-    margin-top: 50px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    /* background: #ededeb; */
+    background: #fff;
+    color: #5a5a58;
 
     h1 {
         margin: 0;
@@ -77,9 +85,76 @@ hr {
         border-bottom: 1px solid #ccc;
         padding: 10px;
         font: 14px/36px 'Open Sans';
+        background: none;
 
         &:active, &:focus{
             outline: none;
         }
     }
+}
+
+
+.task {
+    width: 100%;
+    background: #fff;
+    padding: 15px 20px;
+    color: #555;
+    font-weight: 300;
+    margin: 5px 0;
+    border: 1px solid #f2f2f2;
+    position: relative;
+    border-radius: 3px;
+
+    .priority {
+        width: 16px;
+        height: 16px;
+        background: #ffa800;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        left: -8px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        cursor: pointer;
+        transition: all 400ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+        &:hover {
+            .tooltip {
+                opacity: 1;
+                bottom: 120%;
+            }
+        }
+
+        .tooltip {
+            width: 120px;
+            background: red;
+            position: absolute;
+            left: 50%;
+            bottom: 90%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 500 !important;
+            font: 9px/9px 'Roboto';
+            color: #fff;
+            padding: 10px;
+            letter-spacing: 1px;
+            opacity: 0;
+            transition: all 200ms ease;
+        }
+    }
+
+    .complete {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 10px;
+        cursor: pointer;
+
+        .fa.fa-check:after, .fa.fa-check:before{
+            transition: all 500ms ease;
+        }
+    }
+
 }

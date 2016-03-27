@@ -8,7 +8,7 @@ export const composer = ({context, clearErrors, timerId}, onData) => {
         const tasks = Collections.Tasks.find({timerId: timerId}).fetch();
         return onData(null, {tasks});
     } else {
-        const tasks = Collections.Tasks.findOne(timerId);
+        const tasks = Collections.Tasks.find({timerId: timerId}).fetch();
         if(tasks) return onData(null, {tasks});
     }
 
@@ -18,8 +18,8 @@ export const composer = ({context, clearErrors, timerId}, onData) => {
 export const depsMapper = (context, actions) => ({
     create: actions.tasks.create,
     remove: actions.tasks.remove,
-    done: actions.tasks.set_done,
-    priority: actions.tasks.set_priority,
+    set_completed: actions.tasks.set_completed,
+    set_priority: actions.tasks.set_priority,
     clearErrors: actions.tasks.clearErrors,
     context: () => context
 });

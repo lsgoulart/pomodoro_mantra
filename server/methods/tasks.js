@@ -9,18 +9,18 @@ export default function() {
             check(task, String);
 
             const createdAt = new Date();
-            const done = false;
+            const completed = false;
             const priority = 0;
-            const newTask = { timerId, task, done, priority, createdAt };
+            const newTask = { timerId, task, completed, priority, createdAt };
             return Tasks.insert(newTask);
         }
     });
 
     Meteor.methods({
-        'tasks.toggle.done'(taskId) {
+        'tasks.toggle.completed'(taskId) {
             check(taskId, String);
             let task = Tasks.findOne(taskId);
-            task.done != task.done;
+            task.completed = !task.completed;
             return Tasks.update({ _id: taskId }, task);
         }
     });

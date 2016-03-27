@@ -11,18 +11,19 @@ export default function({Collections, Meteor, LocalState}) {
             check(task, String);
 
             const createdAt = new Date();
-            const done = false;
+            const completed = false;
             const priority = 0;
-            const newTask = { timerId, task, done, priority, createdAt };
+            const owner = Meteor.userId();
+            const newTask = { timerId, owner, task, completed, priority, createdAt };
             return Tasks.insert(newTask);
         }
     });
 
     Meteor.methods({
-        'tasks.toggle.done'(taskId) {
+        'tasks.toggle.completed'(taskId) {
             check(taskId, String);
             let task = Tasks.findOne(taskId);
-            task.done != task.done;
+            task.completed = !task.completed;
             return Tasks.update({ _id: taskId }, task);
         }
     });
@@ -30,6 +31,7 @@ export default function({Collections, Meteor, LocalState}) {
     Meteor.methods({
         'tasks.set.priority'(taskId, priority) {
             check(taskId, String);
+            check(priority, Number);
             let task = Tasks.findOne(taskId);
             task.priority = priority;
             return Tasks.update({ _id: taskId }, task);

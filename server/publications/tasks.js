@@ -5,9 +5,8 @@ import {check} from 'meteor/check';
 export default function() {
     Meteor.publish('all.tasks', (timerId) => {
         check(timerId, String);
-        const selector = { _id: timerId };
+        const selector = { timerId: timerId };
         const options = {
-            fields: { _id: 1 },
             sort: { createdAt: -1 }
         };
 
