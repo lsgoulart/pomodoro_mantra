@@ -19,6 +19,7 @@
         top: 0;
         left: 0;
         line-height: 200px;
+        font-weight: 100;
     }
 
     .timer-holder {
@@ -122,18 +123,17 @@ hr {
         &:hover {
             .tooltip {
                 opacity: 1;
-                bottom: 120%;
+                right: 190%;
             }
         }
 
         .tooltip {
             width: 120px;
-            background: red;
+            height: 30px;
             position: absolute;
-            left: 50%;
-            bottom: 90%;
-            transform: translateX(-50%);
-            font-size: 12px;
+            right: 70%;
+            top: 50%;
+            transform: translateY(-50%);
             text-transform: uppercase;
             text-align: center;
             font-weight: 500 !important;
@@ -143,6 +143,20 @@ hr {
             letter-spacing: 1px;
             opacity: 0;
             transition: all 200ms ease;
+            border-radius: 3px;
+
+            .triangle {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 5px 0 5px 5px;
+                border-color: transparent transparent transparent #007bff;
+                transition: all 200ms ease;
+                position: absolute;
+                top: 50%;
+                left: 100%;
+                transform: translateY(-50%);
+            }
         }
     }
 

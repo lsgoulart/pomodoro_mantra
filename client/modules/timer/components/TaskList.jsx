@@ -17,7 +17,10 @@ class TaskList extends Component {
                         return (
                             <div className="task" key={task._id}>
                                 <div className="priority" onClick={ this._setPriority.bind(this, task._id, task.priority) } style={ this._getPriorityColor(task.priority, task.completed) }>
-                                    <div className="tooltip" style={ this._getPriorityColor(task.priority, task.completed)}>{ this._getPriority(task.priority) } priority</div>
+                                    <div className="tooltip" style={ this._getPriorityColor(task.priority, task.completed)}>
+                                        { this._getPriority(task.priority) } priority
+                                        <div className="triangle" style={{ borderColor: this._getPriorityColorTriangle(task.priority) }}></div>
+                                    </div>
                                 </div>
                                 <div className="complete" onClick={this._toggleComplete.bind(this, task._id)}>
                                     <i className="fa fa-check" style={{ color: (task.completed) ? '#81e808' : '#5a5a58' }}></i>
@@ -37,6 +40,27 @@ class TaskList extends Component {
         else priority = 0;
 
         set_priority(taskId, priority);
+    }
+
+    _getPriorityColorTriangle(priority) {
+        let style = '';
+
+        switch (priority) {
+            case 0:
+                style = 'transparent transparent transparent #81e808';
+                break;
+            case 1:
+                style = 'transparent transparent transparent #ffa800';
+                break
+            case 3:
+                style = 'transparent transparent transparent #eb3e3e';
+                break
+            default:
+                style = 'transparent transparent transparent #eb3e3e';
+                break
+        }
+
+        return style;
     }
 
     _getPriority(priority) {
