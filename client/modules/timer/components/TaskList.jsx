@@ -26,6 +26,17 @@ class TaskList extends Component {
                                     <i className="fa fa-check" style={{ color: (task.completed) ? '#81e808' : '#5a5a58' }}></i>
                                 </div>
                                 <span>{task.task}</span>
+
+                                <div className="pull-right">
+                                    <div className="mins-per-task">
+                                        <i className="fa fa-clock-o"></i>
+                                        <span>{ Math.round(25 / tasks.length) } mins</span>
+                                    </div>
+
+                                    <div className="remove" onClick={this._removeTask.bind(this, task._id)}>
+                                        <i className="fa fa-close"></i>
+                                    </div>
+                                </div>
                             </div>
                         )
                     })}
@@ -78,6 +89,11 @@ class TaskList extends Component {
                 return 'Low';
                 break;
         }
+    }
+
+    _removeTask(id) {
+        const {remove} = this.props;
+        remove(id);
     }
 
     _toggleComplete(taskId) {
