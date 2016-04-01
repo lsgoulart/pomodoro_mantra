@@ -171,4 +171,27 @@ hr {
         }
     }
 
+    .mins-per-task {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .fa-clock-o {
+        vertical-align: middle;
+        color: #9dc3ad;
+        margin-right: 5px;
+    }
+
+    .remove {
+        display: inline-block;
+        vertical-align: top;
+        color: #9a9eaf;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: all 200ms ease;
+
+        &:hover {
+            color: #555;
+        }
+    }
 }
