@@ -24,7 +24,8 @@ export default function({Collections, Meteor, LocalState}) {
             }
 
             const counting = false;
-            const timer = {type, time, counting, createdAt};
+            const owner = Meteor.userId();
+            const timer = {type, time, owner, counting, createdAt};
             const id = Timer.insert(timer);
             return id;
         }

@@ -28,6 +28,7 @@ export default function() {
     Meteor.methods({
         'tasks.set.priority'(taskId, priority) {
             check(taskId, String);
+            check(priority, Number);
             let task = Tasks.findOne(taskId);
             task.priority = priority;
             return Tasks.update({ _id: taskId }, task);

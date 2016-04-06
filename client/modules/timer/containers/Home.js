@@ -3,9 +3,16 @@ import {useDeps, composeWithTracker, composeAll} from 'mantra-core';
 import Moment from 'moment';
 
 export const composer = ({context, clearErrors}, onData) => {
-    const {LocalState} = context();
+    const {LocalState, Collections} = context();
     const error = LocalState.get('TIMER_ERROR');
-    onData(null, {clearErrors})
+
+    if(Meteor.subscribe('all.timers').ready()) {
+        const timers = Collections.Timer.find().fetch();
+        return onData(null, {timers});
+    } else {
+        const timers = Collections.Timer.find().fetch();
+        if(timers) return onData(null, {timers});
+    }
 
     return clearErrors;
 };

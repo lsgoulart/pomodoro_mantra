@@ -9,9 +9,15 @@ class Home extends Component {
             <div className="timer-app">
                 <Helmet title="Timer" />
                 <h1>Pomodoro Timer</h1>
-                <button onClick={this.newTimer.bind(this, 'pomodoro')}>pomodoro</button>
-                <button onClick={this.newTimer.bind(this, 'shortbreak')}>short break</button>
-                <button onClick={this.newTimer.bind(this, 'longbreak')}>long break</button>
+                <div className="buttons-holder">
+                    <button onClick={this.newTimer.bind(this, 'pomodoro')}>pomodoro</button>
+                    <button onClick={this.newTimer.bind(this, 'shortbreak')}>short break</button>
+                    <button onClick={this.newTimer.bind(this, 'longbreak')}>long break</button>
+                </div>
+
+                <div className="pomodoros-list">
+                    {console.log(this.props)}
+                </div>
             </div>
         );
     }

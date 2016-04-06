@@ -22,7 +22,8 @@ export default function() {
             }
 
             const counting = false;
-            const newTimer = { type, time, counting, createdAt };
+            const owner = Meteor.userId();
+            const newTimer = { type, time, owner, counting, createdAt };
             return Timer.insert(newTimer);
         }
     });
